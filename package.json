@@ -1,0 +1,34 @@
+{
+  "name": "figure",
+  "version": "0.0.0",
+  "description": "Command-line tool to convert between 3D Object formats via NodeJS",
+  "main": "libs/InstagramStream.js",
+  "dependencies": {
+    "colors": "0.6.x",
+    "minimist": "0.x.x"
+  },
+  "devDependencies": {
+    "mocha": "1.x.x"
+  },
+  "scripts": {
+    "start": "node examples/socket.io.js"
+  },
+  "bin": {
+    "figure": "bin/figure"
+  },
+  "engines": {
+    "node": ">=0.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mattvvhat/figure.git"
+  },
+  "keywords": [
+    "WebGL",
+    "STL",
+    "OBJ"
+  ],
+  "author": "Matt Razorblade Hammerstadt <matt@planwork.us>",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}

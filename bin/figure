@@ -1,0 +1,54 @@
+#!/usr/bin/env node
+
+// Use colors for pretty warnings
+var colors = require('colors');
+
+var argv = require('minimist')(process.argv.slice(2));
+process.bin = process.title = 'figure';
+
+var input   = { file : '', type : '' };
+var output  = { file : '', type : '' };
+
+if (argv._.length !== 2) {
+  console.log('ERROR'.red + ': Must contain values for input and output');
+  process.exit();
+}
+
+// :|
+input.file   = argv._[0];
+output.file  = argv._[1];
+
+// Get explicit input filetype or nah
+if ('in' in argv)
+  input.type = argv['in'];
+else
+  input.type = get_file_type(input.file);
+
+// Get explicit output filetype or nah
+if ('out' in argv)
+  output.type = argv['out'];
+else
+  output.type = get_file_type(output.file);
+
+// ...
+console.log('');
+console.log('in file  = ' + input.file);
+console.log('in type  = ' + input.type);
+console.log('out file = ' + output.file);
+console.log('out type = ' + output.type);
+console.log('');
+console.log('-_-'.yellow);
+
+/**
+ * Try to Get the File-type from the Filename
+ * Looks for the last '.' in the string, and returns every follow character. If
+ * there are no instances of a '.', then return the empty string.
+ * @param {string} str string, formatted like a file name
+ * @return {string} the supposed filetype
+ */
+function get_file_type (str) {
+  var i = str.lastIndexOf('.');
+  return i !== -1 ? str.substring(i+1) : '';
+}
+
+
